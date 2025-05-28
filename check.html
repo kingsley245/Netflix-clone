@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movie Modal</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #000;
+        color: #fff;
+      }
+
+      .modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.7);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 999;
+        visibility: hidden;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .modal-overlay.active {
+        visibility: visible;
+        opacity: 1;
+      }
+
+      .modal-content {
+        background-color: #111;
+        width: 90%;
+        max-width: 700px;
+        border-radius: 10px;
+        padding: 2rem;
+        position: relative;
+        text-align: left;
+      }
+
+      .modal-close {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        font-size: 1.5rem;
+        color: #fff;
+        background: none;
+        border: none;
+        cursor: pointer;
+      }
+
+      .modal-title {
+        font-size: 3rem;
+        font-weight: bold;
+      }
+
+      .modal-tags {
+        margin: 1rem 0;
+      }
+
+      .modal-tags span {
+        background: #333;
+        padding: 0.4rem 0.8rem;
+        border-radius: 5px;
+        margin-right: 0.5rem;
+        font-size: 0.9rem;
+      }
+
+      .modal-description {
+        font-size: 1rem;
+        line-height: 1.6;
+        margin-bottom: 2rem;
+      }
+
+      .modal-button {
+        background-color: #e50914;
+        color: #fff;
+        padding: 0.75rem 1.5rem;
+        border: none;
+        border-radius: 5px;
+        font-size: 1rem;
+        cursor: pointer;
+      }
+
+      .modal-image {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+        margin-bottom: 1.5rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="modal-overlay" id="movieModal">
+      <div class="modal-content">
+        <button class="modal-close" onclick="closeModal()">&times;</button>
+        <img
+          src="https://via.placeholder.com/600x200"
+          alt="Movie Preview"
+          class="modal-image"
+        />
+        <div class="modal-title">FOREVER</div>
+        <div class="modal-tags">
+          <span>2025</span>
+          <span>18+</span>
+          <span>Show</span>
+          <span>Romance</span>
+          <span>Dramas</span>
+        </div>
+        <div class="modal-description">
+          Reunited as teens, two childhood friends fall deeply in love,
+          experiencing the joy and heartache of a first romance that will change
+          their lives forever.
+        </div>
+        <button class="modal-button">Get Started ➤</button>
+      </div>
+    </div>
+
+    <script>
+      function openModal() {
+        document.getElementById('movieModal').classList.add('active');
+      }
+
+      function closeModal() {
+        document.getElementById('movieModal').classList.remove('active');
+      }
+
+      // Example: auto-open for demo, remove this in production
+      window.onload = openModal;
+    </script>
+  </body>
+</html>
