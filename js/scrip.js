@@ -23,5 +23,36 @@ faqButtons.forEach((button) => {
   });
 });
 
-console.log(screen.width);
-console.log(screen.height);
+// const learnMore = document.getElementById('hiddenseen');
+// const hiddenParagraph = document.getElementById('hiddenopen');
+
+// learnMore.addEventListener('click', () => {
+//   hiddenParagraph.classList.remove('hidden');
+//   learnMore.style.display = 'none';
+// });
+
+// scroll disable
+// const scrollContainerScroll = document.querySelector('.scroll-container');
+// const btnLeftScroll = document.querySelector('.scroll-left');
+// const btnRightScroll = document.querySelector('.scroll-right');
+
+// function checkingArrow() {
+//   const scrollLeft = scrollContainerScroll.scrollLeft;
+//   const scrollWidth = scrollContainerScroll.scrollWidth;
+//   const clientWidth = scrollContainerScroll.clientWidth;
+
+//   if (scrollLeft <= 0) {
+//     btnLeftScroll.classList.add('hidden');
+//   } else {
+//     btnLeft.classList.remove('hicdden');
+//   }
+
+//   if (scrollLeft + clientWidth >= scrollWidth - 1) {
+//     btnRightScroll.classList.add('hidden');
+//   } else {
+//     btnRightScroll.classList.remove('hidden');
+//   }
+// }
+
+// window.addEventListener('load', checkingArrow);
+// scrollContainerScroll.addEventListener('scroll', checkingArrow);

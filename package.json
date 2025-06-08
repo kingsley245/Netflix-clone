@@ -8,8 +8,18 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
   "devDependencies": {
-    "tailwindcss": "^4.1.7"
-  }
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.4",
+    "tailwindcss": "^4.1.8"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kingsley245/Netflix-clone.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kingsley245/Netflix-clone/issues"
+  },
+  "homepage": "https://github.com/kingsley245/Netflix-clone#readme",
+  "description": ""
 }
