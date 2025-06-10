@@ -1,3 +1,5 @@
+// trending clicked card for home page
+
 const faqButtons = document.querySelectorAll('.faq-question');
 
 faqButtons.forEach((button) => {

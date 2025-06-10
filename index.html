@@ -14,6 +14,7 @@
       referrerpolicy="no-referrer"
     />
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./css/trendingclick.css" />
 
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
@@ -120,8 +121,8 @@
         </div>
 
         <div class="trending-container" id="trendingContainer">
-          <div class="movie-card">
-            <img src="https://via.placeholder.com/160x240" alt="Movie 1" />
+          <!-- <div class="movie-card">
+            <img src="./images/ifeoma.jpg" alt="Movie 1" />
             <div class="card-number">1</div>
           </div>
           <div class="movie-card">
@@ -132,6 +133,7 @@
             <img src="https://via.placeholder.com/160x240" alt="Movie 3" />
             <div class="card-number">3</div>
           </div>
+
           <div class="movie-card">
             <img src="https://via.placeholder.com/160x240" alt="Movie 4" />
             <div class="card-number">4</div>
@@ -151,15 +153,15 @@
           <div class="movie-card">
             <img src="https://via.placeholder.com/160x240" alt="Movie 8" />
             <div class="card-number">8</div>
-          </div>
-          <div class="movie-card">
+          </div> -->
+          <!-- <div class="movie-card">
             <img src="https://via.placeholder.com/160x240" alt="Movie 9" />
             <div class="card-number">9</div>
           </div>
           <div class="movie-card">
             <img src="https://via.placeholder.com/160x240" alt="Movie 10" />
             <div class="card-number">10</div>
-          </div>
+          </div> -->
         </div>
 
         <div class="arrow-button arrow-right" id="scrollRight">
@@ -169,15 +171,16 @@
     </div>
 
     <!-- Reasons to Join Section -->
-    <section
-      class="px-6 sm:px-12 py-12 bg-black max-w-7xl mx-auto Reasons-join"
-    >
+    <section class="px-4 sm:px-8 py-8 bg-black max-w-7xl mx-auto Reasons-join">
       <h2 class="text-2xl sm:text-3xl font-bold mb-8">More Reasons to Join</h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
         <div
           class="bg-gradient-to-b from-[#2c2256] to-[#0c0b15] p-6 rounded-xl"
         >
-          <h3 class="text-lg font-bold mb-2">Enjoy on your TV</h3>
+          <i class=""></i>
+          <h3 class="text-lg font-bold mb-2">
+            <i class="fas fa-film px-2"></i>Enjoy on your TV
+          </h3>
           <p class="text-sm">
             Watch on Smart TVs, Playstation, Xbox, Chromecast, Apple TV, Blu-ray
             players, and more.
@@ -187,6 +190,7 @@
           class="bg-gradient-to-b from-[#2c2256] to-[#0c0b15] p-6 rounded-xl"
         >
           <h3 class="text-lg font-bold mb-2">
+            <i class="fas fa-download py-2 font-extrabold"></i>
             Download your shows to watch offline
           </h3>
           <p class="text-sm">
@@ -196,7 +200,9 @@
         <div
           class="bg-gradient-to-b from-[#2c2256] to-[#0c0b15] p-6 rounded-xl"
         >
-          <h3 class="text-lg font-bold mb-2">Watch everywhere</h3>
+          <h3 class="text-lg font-bold mb-2">
+            Watch everywhere <i class="fas fa-tv"></i>
+          </h3>
           <p class="text-sm">
             Stream unlimited movies and TV shows on your phone, tablet, laptop,
             and TV.
@@ -205,7 +211,9 @@
         <div
           class="bg-gradient-to-b from-[#2c2256] to-[#0c0b15] p-6 rounded-xl"
         >
-          <h3 class="text-lg font-bold mb-2">Create profiles for kids</h3>
+          <h3 class="text-lg font-bold mb-2">
+            <i class="fas fa-tv p-3"></i>Create profiles for kids
+          </h3>
           <p class="text-sm">
             Send kids on adventures with their favorite characters in a space
             made just for them — free with your membership.
@@ -610,7 +618,48 @@
         <!-- <span class="text-blue-400 underline"><a href="#">Learn More.</a></span> -->
       </div>
     </footer>
+
+    <!-- Movie Detail Template -->
+    <template id="movieDetailsTemplate">
+      <div class="overlay">
+        <div class="height">
+          <div class="card">
+            <i class="fas fa-times close-icon closeBtn"></i>
+            <img src="" alt="Movie Image" class="detailImage" />
+            <div class="card-content">
+              <div class="title detailTitle">TITLE</div>
+              <div class="tags detailTags"></div>
+              <div class="description detailDescription">DESCRIPTION</div>
+              <button class="get-started">
+                Get Started <i class="fas fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </template>
+
+    <script src="./js/scrip.js"></script>
+    <script src="./js/trendingNow.js"></script>
   </body>
-  <script src="./js/scrip.js"></script>
-  <script src="./js/trendingNow.js"></script>
+  <script>
+    const overlay = document.getElementById('overlay');
+    const card = document.getElementById('card');
+    const closeBtn = document.getElementById('closeBtn');
+
+    function closeCard() {
+      card.classList.add('fade-out');
+      setTimeout(() => {
+        overlay.remove();
+      }, 300);
+    }
+
+    closeBtn.addEventListener('click', closeCard);
+
+    overlay.addEventListener('click', (e) => {
+      if (!card.contains(e.target)) {
+        closeCard();
+      }
+    });
+  </script>
 </html>

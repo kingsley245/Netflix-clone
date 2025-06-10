@@ -21,5 +21,8 @@
     "url": "https://github.com/kingsley245/Netflix-clone/issues"
   },
   "homepage": "https://github.com/kingsley245/Netflix-clone#readme",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "@tailwindcss/vite": "^4.1.8"
+  }
 }
