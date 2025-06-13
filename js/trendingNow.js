@@ -93,7 +93,7 @@ function showTrendingDetails(movie) {
   document.body.appendChild(clone);
 }
 
-// fetchTrending movies for home page
+// fetchTrending movies for home page an array of 20
 async function fetchTrendingMovies() {
   const trending = await fetchAPIData('/trending/movie/day');
   const movies = trending.results;

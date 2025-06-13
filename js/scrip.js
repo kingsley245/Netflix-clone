@@ -58,3 +58,61 @@ faqButtons.forEach((button) => {
 
 // window.addEventListener('load', checkingArrow);
 // scrollContainerScroll.addEventListener('scroll', checkingArrow);
+
+// Getting Values from the sign in page
+document.addEventListener('DOMContentLoaded', function () {
+  const loginButton = document.querySelector('.btn');
+  const emailInput = document.getElementById('email');
+  const passwordInput = document.getElementById('Password');
+  const errorMsg = document.getElementById('error');
+
+  const validEmail = 'Kingleyfestus24@gmail.com';
+  const validPassword = '35729083K';
+
+  loginButton.addEventListener('click', function () {
+    const email = emailInput.value.trim();
+    const password = passwordInput.value;
+
+    if (email === validEmail && password === validPassword) {
+      // Redirect to main page
+      window.location.href = '../AfterSigninPage.html';
+    } else {
+      errorMsg.textContent = 'Invalid email or password. Try again.';
+    }
+
+    if (emailInput === '' && passwordInput === '') {
+      errorMsg.textContent = 'please input your login credentials';
+    }
+  });
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+  const getStartedInput = document.getElementById('get__started');
+  const formRegistered = document.getElementById('form__registered');
+
+  console.log(formRegistered);
+  console.log(getStartedInput);
+  formRegistered.addEventListener('submit', function (event) {
+    event.preventDefault(); // prevent default
+
+    const userEmail = getStartedInput.value.trim(); // Get the email value
+
+    if (userEmail) {
+      const encodedEmail = encodeURIComponent(userEmail);
+
+      window.location.href = `../html/signin.html?email=${encodedEmail}`;
+    } else {
+      alert('Please enter your email address to get started.');
+    }
+  });
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+  const urlpasrs = new URLSearchParams(window.location.search);
+  const email = urlpasrs.get('email');
+
+  const emailInput = document.getElementById('emailInput');
+  if (email && emailInput) {
+    emailInput.value = decodeURIComponent(email);
+  }
+});

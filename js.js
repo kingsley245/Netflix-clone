@@ -72,10 +72,10 @@ window.addEventListener('popstate', (e) => {
 
 // on page load
 
-// window.addEventListener('DOMContentLoaded', () => {
-//   const saved = localStorage.getItem('activePage') || 'home.html';
-//   loadContent(saved, false);
-// });
+window.addEventListener('DOMContentLoaded', () => {
+  const saved = localStorage.getItem('activePage') || 'home.html';
+  loadContent(saved, false);
+});
 
 // Loading external JS file
 function loadScript(filepath) {

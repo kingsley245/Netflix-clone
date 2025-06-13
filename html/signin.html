@@ -25,14 +25,16 @@
 
     <div class="login-container">
       <h2 class="font">Sign In</h2>
-      <div class="content--mal">
-        <div class="form-group">
-          <input type="text" placeholder="Email or mobile number" />
+      <div class="content--mal" id="login-form">
+        <div class="form-group" style="position: relative">
+          <input type="text" placeholder="Email or mobile number" id="email" />
         </div>
         <div class="form-group">
-          <input type="password" placeholder="Password" />
+          <input type="password" placeholder="Password" id="Password" />
         </div>
-        <button class="btn">Sign In</button>
+
+        <button class="btn" type="submit">Sign In</button>
+        <p id="error" style="color: red"></p>
         <div class="or-divider">OR</div>
         <button class="btn-sign-in">Use a Sign-In Code</button>
       </div>
@@ -103,4 +105,6 @@
       </div>
     </footer>
   </body>
+
+  <script src="/js/scrip.js"></script>
 </html>

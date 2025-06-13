@@ -1,7 +1,3 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 *,
 *::after,
 *::before {
@@ -382,7 +378,6 @@ html {
 .trending-section {
   margin-left: 250px;
   padding: 2rem;
-  /* height: 100vh;  */
   overflow-x: hidden;
   overflow-y: hidden;
   position: relative;
@@ -391,13 +386,11 @@ html {
 }
 
 .trending-header {
-  font-size: 2rem;
-  font-weight: 700;
+  font-size: 1.3rem;
+  font-weight: 600;
   margin-bottom: 1.5rem;
   color: var(--color-white);
-  /* user-select: none; */
   flex-shrink: 0;
-  /* position: fixed; */
 }
 
 /* Scroll container */
@@ -422,8 +415,8 @@ html {
 
 .movie-card {
   position: relative;
-  min-width: 180px;
-  height: 270px;
+  min-width: 200px;
+  height: 300px;
   flex-shrink: 0;
   border-radius: 10px;
   overflow: hidden;
@@ -475,14 +468,18 @@ html {
 
 .movie-title {
   text-align: center;
-  font-size: 0.9rem;
+  font-size: 12px;
   margin-top: 0.4rem;
   color: white;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  background: var(--color-dark);
+  /* background: var(--color-dark); */
   position: relative;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  height: 2.4em;
 }
 
 /* Scroll arrows */
@@ -563,6 +560,9 @@ html {
     background: var(--color-gray);
     color: white;
   }
+  .trending-header {
+    font-size: 1.2rem;
+  }
 }
 
 .scroll-container:hover + .scroll-left,
@@ -586,13 +586,13 @@ html {
   border-radius: 8px;
 }
 
-.movie-rating,
+/* .movie-rating,
 .movie-title {
   margin-top: 5px;
   font-size: 14px;
   color: #fff;
   text-align: center;
-}
+} */
 
 .scroll-wrapper {
   position: relative;
@@ -639,19 +639,46 @@ html {
 /* after-side-card footer section */
 .after-side-card {
   border-top: 1px solid rgb(139, 132, 132);
-  margin-left: 250px;
   padding: 2.2rem;
-  color: rgb(199, 188, 188);
+  color: rgb(168, 160, 160);
   font-size: 12px;
   font-weight: 500;
   display: flex;
-  flex-shrink: 0;
+  flex-direction: column;
+  gap: 1.5rem;
   margin-top: 8rem;
+  margin-left: 250px;
 }
 
 .backed-link {
   display: flex;
-  gap: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.backed-link li a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.backed-link li a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive for mobile view */
+@media screen and (max-width: 768px) {
+  .after-side-card {
+    margin-left: 0;
+    padding: 1.5rem;
+    text-align: center;
+  }
+
+  .backed-link {
+    justify-content: center;
+  }
 }
 
 /* searched result styles */
