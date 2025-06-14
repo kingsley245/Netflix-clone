@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "build": "tailwindcss -i ./style.css -o ./dist/output.css --watch"
+    "build": "tailwindcss -i ./style.css -o ./dist/output.css --watch",
+    "start": "node server.js"
   },
   "keywords": [],
   "author": "",
@@ -21,8 +22,13 @@
     "url": "https://github.com/kingsley245/Netflix-clone/issues"
   },
   "homepage": "https://github.com/kingsley245/Netflix-clone#readme",
-  "description": "",
   "dependencies": {
-    "@tailwindcss/vite": "^4.1.8"
-  }
+    "@tailwindcss/vite": "^4.1.8",
+    "axios": "^1.9.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "mongoose": "^8.15.2"
+  },
+  "description": ""
 }
