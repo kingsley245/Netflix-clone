@@ -84,6 +84,9 @@
 //   script.defer = true;
 //   document.body.appendChild(script);
 // }
+
+// cooking beans is good for js in the realm of the spirit
+
 const links = document.querySelectorAll('.sidebar-list-item-l');
 
 const scriptMap = {

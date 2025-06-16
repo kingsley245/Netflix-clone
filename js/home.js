@@ -1,5 +1,5 @@
 // const globalYoutubeApi = 'AIzaSyDU7Jw10AykEQgzsGMkZwA8h7TC0ewl9vI'; // YOUTUBE API KEY the first
-const globalYoutubeApi = 'AIzaSyCn-5eb__GnSHzvqntbN6mJ3U1bMmuhtgA'; // YOUTUBE API KEY the second
+// const globalYoutubeApi = 'AIzaSyCn-5eb__GnSHzvqntbN6mJ3U1bMmuhtgA'; // YOUTUBE API KEY the second
 // const globalYoutubeApi = 'AIzaSyDWSjzwNJIb-kb1jummVUZuQ5PVKE-_hsU'; // YOUTUBE API KEY the third
 // const globalYoutubeApi = 'AIzaSyBKA4kAYJCjNOVnI_kw1mVj10DxcYEcD1o'; // YOUTUBE API KEY the fourths
 
@@ -73,36 +73,40 @@ function hideLoader() {
 }
 // using the youtube api
 
-const query = 'latest movies trailers';
+async function fetchVideosFromDatabase() {
+  try {
+    const response = await fetch('http://localhost:5000/videos');
+    const data = await response.json();
 
-const tvWrapper = document.getElementById('trending-cards-wrapper');
+    const wrapper = document.getElementById('trending-cards-wrapper');
+    wrapper.innerHTML = '';
 
-console.log(tvWrapper);
-async function fetchDataFromYouTUBE(params) {
-  const res = await fetch(
-    `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${encodeURIComponent(
-      query
-    )}&type=video&maxResults=6&key=${globalYoutubeApi}`
-  );
+    data.forEach((video) => {
+      const card = document.createElement('div');
+      card.className = 'movie-card';
+      card.innerHTML = `
+        <img src="${video.thumbnail}" alt="${video.title}" />
+        <div class="movie-rating"><i class="fas fa-star"></i> 🎬</div>
+        <div class="movie-title">${
+          video.title.length > 30
+            ? video.title.slice(0, 30) + '...'
+            : video.title
+        }</div>
+      `;
 
-  const data = await res.json();
-  console.log(data);
-  data.items.forEach((video) => {
-    const title =
-      video.snippet.title.length > 40
-        ? video.snippet.title.substring(0, 37) + '...'
-        : video.snippet.title;
-    const thumbnail = video.snippet.thumbnails.high.url;
+      // 🎬 On click, open the video in a new tab (YouTube)
+      card.onclick = () => {
+        window.open(
+          `https://www.youtube.com/watch?v=${video.videoId}`,
+          '_blank'
+        );
+      };
 
-    const cards = document.createElement('div');
-    cards.className = 'movie-card';
-    cards.innerHTML = `
-    <img src="${thumbnail}" alt="${title}" />
-    <div class="movie-title">${title}</div>
-    `;
-
-    tvWrapper.appendChild(cards);
-  });
+      wrapper.appendChild(card);
+    });
+  } catch (error) {
+    console.error('Error fetching videos from DB:', error);
+  }
 }
 
 async function fetchNollywoodMovies() {
@@ -375,11 +379,12 @@ async function fetchActionMovies() {
   }
 }
 
-fetchActionMovies();
-fetchHollywoodRomanticMovies();
-fetchLatestRomanticMovies();
-fetchLatestKDrama();
-fetchTrendingComediesNigeria();
-fetchTrendingComediesNigeria();
-fetchNollywoodMovies();
-fetchDataFromYouTUBE();
+// fetchActionMovies();
+// fetchHollywoodRomanticMovies();
+// fetchLatestRomanticMovies();
+// fetchLatestKDrama();
+// fetchTrendingComediesNigeria();
+// fetchTrendingComediesNigeria();
+// fetchNollywoodMovies();
+// fetchDataFromYouTUBE();
+fetchVideosFromDatabase();
