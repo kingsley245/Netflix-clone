@@ -1,8 +1,3 @@
-// const globalYoutubeApi = 'AIzaSyDU7Jw10AykEQgzsGMkZwA8h7TC0ewl9vI'; // YOUTUBE API KEY the first
-// const globalYoutubeApi = 'AIzaSyCn-5eb__GnSHzvqntbN6mJ3U1bMmuhtgA'; // YOUTUBE API KEY the second
-// const globalYoutubeApi = 'AIzaSyDWSjzwNJIb-kb1jummVUZuQ5PVKE-_hsU'; // YOUTUBE API KEY the third
-// const globalYoutubeApi = 'AIzaSyBKA4kAYJCjNOVnI_kw1mVj10DxcYEcD1o'; // YOUTUBE API KEY the fourths
-
 const scrollContainerScroll = document.querySelector('.scroll-container');
 const btnLeftScroll = document.querySelector('.scroll-left');
 const btnRightScroll = document.querySelector('.scroll-right');
@@ -236,7 +231,7 @@ async function fetchLatestKDrama() {
     const response = await fetch(url);
     const data = await response.json();
 
-    const wrapper = document.getElementById('kdrama-wrapper'); // ⬅️ Make sure you have this div
+    const wrapper = document.getElementById('kdrama-wrapper');
     console.log(wrapper);
     wrapper.innerHTML = '';
 
@@ -275,7 +270,7 @@ async function fetchLatestRomanticMovies() {
     const response = await fetch(url);
     const data = await response.json();
 
-    const wrapper = document.getElementById('romantic-wrapper'); // Make sure this div exists in your HTML
+    const wrapper = document.getElementById('romantic-wrapper');
     wrapper.innerHTML = '';
 
     data.items.forEach((video) => {
@@ -313,7 +308,7 @@ async function fetchHollywoodRomanticMovies() {
     const response = await fetch(url);
     const data = await response.json();
 
-    const wrapper = document.getElementById('hollywood-romantic-wrapper'); // Make sure this ID exists in your HTML
+    const wrapper = document.getElementById('hollywood-romantic-wrapper');
     wrapper.innerHTML = '';
 
     data.items.forEach((video) => {
