@@ -1,3 +1,5 @@
+// const globalYoutubeApi = 'AIzaSyDU7Jw10AykEQgzsGMkZwA8h7TC0ewl9vI';
+
 const scrollContainerScroll = document.querySelector('.scroll-container');
 const btnLeftScroll = document.querySelector('.scroll-left');
 const btnRightScroll = document.querySelector('.scroll-right');
@@ -69,6 +71,7 @@ function hideLoader() {
 // using the youtube api
 
 async function fetchVideosFromDatabase() {
+  showloader();
   try {
     const response = await fetch('http://localhost:5000/videos');
     const data = await response.json();
@@ -101,6 +104,8 @@ async function fetchVideosFromDatabase() {
     });
   } catch (error) {
     console.error('Error fetching videos from DB:', error);
+  } finally {
+    hideLoader();
   }
 }
 
@@ -163,7 +168,7 @@ async function fetchTrendingComediesNigeria() {
       card.className = 'movie-card';
       card.innerHTML = `
         <img src="${thumbnails.high.url}" alt="${title}" />
-        <div class="movie-rating"><i class="fas fa-star"></i> 😂</div>
+        <div class="movie-rating"><i class="fas fa-star"></i> </div>
         <div class="movie-title">${
           title.length > 30 ? title.slice(0, 30) + '...' : title
         }</div>
@@ -281,7 +286,7 @@ async function fetchLatestRomanticMovies() {
       card.className = 'movie-card';
       card.innerHTML = `
         <img src="${thumbnails.high.url}" alt="${title}" />
-        <div class="movie-rating"><i class="fas fa-heart"></i> ❤️</div>
+        <div class="movie-rating"><i class="fas fa-heart"></i> </div>
         <div class="movie-title">${
           title.length > 30 ? title.slice(0, 30) + '...' : title
         }</div>
@@ -319,7 +324,7 @@ async function fetchHollywoodRomanticMovies() {
       card.className = 'movie-card';
       card.innerHTML = `
         <img src="${thumbnails.high.url}" alt="${title}" />
-        <div class="movie-rating"><i class="fas fa-heart"></i> 💕</div>
+        <div class="movie-rating"><i class="fas fa-heart"></i></div>
         <div class="movie-title">${
           title.length > 30 ? title.slice(0, 30) + '...' : title
         }</div>
@@ -357,7 +362,7 @@ async function fetchActionMovies() {
       card.className = 'movie-card';
       card.innerHTML = `
         <img src="${thumbnails.high.url}" alt="${title}" />
-        <div class="movie-rating"><i class="fas fa-star"></i> 💥</div>
+        <div class="movie-rating"><i class="fas fa-star"></i></div>
         <div class="movie-title">${
           title.length > 30 ? title.slice(0, 30) + '...' : title
         }</div>
@@ -370,7 +375,7 @@ async function fetchActionMovies() {
       wrapper.appendChild(card);
     });
   } catch (error) {
-    console.error('❌ Action movies fetch failed:', error);
+    console.error(' Action movies fetch failed:', error);
   }
 }
 

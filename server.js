@@ -1,5 +1,3 @@
-// const YOUTUBE_API_KEY = 'AIzaSyCn-5eb__GnSHzvqntbN6mJ3U1bMmuhtgA'
-
 const logger = require('./logger');
 const sendErrorMail = require('./mailer');
 
