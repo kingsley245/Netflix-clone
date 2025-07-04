@@ -116,6 +116,13 @@ async function fetchTrendingMovies() {
   });
 }
 
+async function fetchUpcomingMovie() {
+  const Upcoming = await fetchAPIData('/movie/upcoming');
+  const resultsUpcoming = Upcoming.results;
+  console.log(resultsUpcoming);
+}
+
+fetchUpcomingMovie();
 // Routes// Init app
 
 function init() {
